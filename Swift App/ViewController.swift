@@ -9,17 +9,25 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var labelsOnLabels: UILabel!
     
     @IBOutlet weak var text1: UITextField!
     
     @IBOutlet weak var text2: UITextField!
-
+    
+    var pushed = 0
     
     @IBAction func buttonPushed(_ sender: Any) {
         
-        labelsOnLabels.text = "\(Double(text1.text!)! + Double(text2.text!)!)"
+        pushed = pushed + 1
+        
+        if pushed % 2 == 0 {
+            labelsOnLabels.text = "\(Double(text1.text!)! + Double(text2.text!)!)"
+        }
+        else{
+            labelsOnLabels.text = "\(Double(text1.text!)! - Double(text2.text!)!)"
+        }
         
     }
     
@@ -28,12 +36,12 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.view.backgroundColor = UIColor.lightGray
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 
